@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+struct elem
+{
+    int a;
+    char c;
+    double d;
+};
+
+int main()
+{
+    struct elem arr[5];
+    
+    for(int i = 0; i < 5; i++)
+    {
+        printf("Element members: ");
+        scanf("%d %c %lf", &arr[i].a, &arr[i].c, &arr[i].d);
+    }
+    
+    for(int i = 0; i < 5; i++)
+    {
+        printf("\nValue: %d  Size: %lu  Adress: %p", arr[i].a, sizeof(arr[i]), &arr[i].a);
+    }
+    
+    return 0;
+}
