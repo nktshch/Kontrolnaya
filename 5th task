@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	unsigned long long int sum = 0;
+	int a;
+	int last3[3] = {0};
+	/* Число делится на 8, если последние 3 цифры образуют число,
+	делящееся на 8*/
+	
+	int err = 0; // Проверка на числа
+	for (a = getchar(); a != '\n'; )
+	{
+	    if (a < 48 || a > 57)
+	    {
+	        err = 1;
+	        printf("ERROR");
+	        break;
+	    }
+		sum = sum + a - 48;
+		
+		last3[0] = last3[1];
+		last3[1] = last3[2];
+		last3[2] = a - 48;
+		
+		a = getchar();
+	}
+	
+	if (sum % 3 == 0 && err == 0)
+	{
+		printf("Divisible by 3\n");
+	}
+	else if (err == 0)
+	{
+		printf("Not divisible by 3\n");
+	}
+	
+	int div8 = last3[0] * 100 + last3[1] * 10 + last3[2];
+	
+	if (div8 % 8 == 0 && err == 0)
+	{
+		printf("Divisible by 8");
+	}
+	else if (err == 0)
+	{
+		printf("Not divisible by 8");
+	}
+    
+    
+	return 0;
+}
