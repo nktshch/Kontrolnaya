@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    float x, y;
+    scanf("(%f;%f)", &x, &y);
+    printf("\n%f %f", x, y);
+    
+    if(x >= 1000 || y>= 1000 || x < -1000 || y < -1000) // Принадлежит ли полю
+    {
+        printf("Out of bounds");
+    }
+    
+    else
+    {
+        /* Строки 18-22 сдвигают точку к левому нижнему углу клетки 2 на 2,
+        в которой они лежат, так как его цвет легче проверить */
+        int xi = (x >= 0) ? x : x - 1;
+        int yi = (y >= 0) ? y : y - 1;
+        printf("\n%d %d", xi, yi);
+        xi = (xi % 2 == 0) ? xi : xi - 1;
+        yi = (yi % 2 == 0) ? yi : yi - 1;
+        printf("\n%d %d", xi, yi);
+        
+        // Угол чёрный, если сумма координат делится на 4
+        if ((xi + yi) % 4)
+        {
+            printf("Black");
+        }
+        else
+        {
+            printf("White");
+        }
+    }
+
+    return 0;
+}
