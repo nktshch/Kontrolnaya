@@ -1,0 +1,4 @@
+void func2(struct A * x)
+{
+    x->a++;
+}
