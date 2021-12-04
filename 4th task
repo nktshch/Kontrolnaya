@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    int N;
+    scanf("%d", &N);
+    char arr[N];
+    
+    scanf("\n"); // Чтобы '\n' не записался в массив
+    for(int i = 0; i < N; i++)
+    {
+        scanf("%c", &arr[i]);
+    }
+    
+    int num = strlen(arr);
+    printf("\n%d", num);
+    
+    return 0;
+}
