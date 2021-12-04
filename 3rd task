@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+struct Point
+{
+    double x, y;
+};
+
+struct Quad
+{
+    struct Point left_bottom, left_top, right_bottom, right_top;
+};
+
+double func1(struct Quad shape)
+{
+    double a, b, c, d;
+    a = sqrt(pow(shape.left_bottom.x - shape.left_top.x, 2) + pow(shape.left_bottom.y - shape.left_top.y, 2));
+    b = sqrt(pow(shape.left_bottom.x - shape.right_bottom.x, 2) + pow(shape.left_bottom.y - shape.right_bottom.y, 2));
+    c = sqrt(pow(shape.right_top.x - shape.left_top.x, 2) + pow(shape.right_top.y - shape.left_top.y, 2));
+    d = sqrt(pow(shape.right_top.x - shape.right_bottom.x, 2) + pow(shape.right_top.y - shape.right_bottom.y, 2));
+    return a + b + c + d;
+}
+
+int main()
+{
+    struct Quad rect;
+    rect.left_bottom.x = 0.8;
+    rect.left_bottom.y = -5.2;
+    rect.left_top.x = 1;
+    rect.left_top.y = 10;
+    rect.right_top.x = 6;
+    rect.right_top.y = 15;
+    rect.right_bottom.x = 4;
+    rect.right_bottom.y = 5.2;
+    printf("%lf", func1(rect));
+    
+    return 0;
+}
