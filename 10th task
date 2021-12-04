@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+struct A
+{
+    int a;
+    char c;
+};
+
+void func2(struct A * x)
+{
+    x->a++;
+}
+
+int main()
+{
+    struct A abc;
+    struct A * p = &abc;
+    
+    scanf("%d", &abc.a);
+
+    func2(p);
+    
+    printf("%d", abc.a);
+    
+    return 0;
+}
