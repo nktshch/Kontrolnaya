@@ -1,0 +1,9 @@
+double func1(struct Quad shape)
+{
+    double a, b, c, d;
+    a = sqrt(pow(shape.left_bottom.x - shape.left_top.x, 2) + pow(shape.left_bottom.y - shape.left_top.y, 2));
+    b = sqrt(pow(shape.left_bottom.x - shape.right_bottom.x, 2) + pow(shape.left_bottom.y - shape.right_bottom.y, 2));
+    c = sqrt(pow(shape.right_top.x - shape.left_top.x, 2) + pow(shape.right_top.y - shape.left_top.y, 2));
+    d = sqrt(pow(shape.right_top.x - shape.right_bottom.x, 2) + pow(shape.right_top.y - shape.right_bottom.y, 2));
+    return a + b + c + d;
+}
