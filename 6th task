@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    // Пункт a
+	int a;
+	scanf("%d", &a);
+	printf("Hexadecimal form: %x\n\n", a);
+    
+    // Пункт b
+    float x, y;
+    scanf("%f %f", &x, &y);
+    printf("Product: %f\n\n", x * y);
+    
+    // Пункт c
+    double v, u;
+    scanf("%lf %lf", &v, &u);
+    double max = (v <= u) ? u : v;
+    double min = (v <= u) ? v : u;
+    double vu = max - min;
+    printf("Difference: %07.2lf\n", vu); // 4 символа до запятой
+    printf("Another form: 0000%01.2lf", vu); // 4 нуля перед числом
+    
+	return 0;
+}
